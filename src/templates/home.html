@@ -3,8 +3,26 @@
 
 
 {% block continut %}
-    <h1>Paragraful 1 </h1>
-    <h2>Paragraful 2</h2>
-<p>Numarul norocos este <b> {{number}} </b></p>
-    <a href="www.siunlink.ro">link</href
+    <h1>Finanțarea 2017 - 2019</h1>
+    <table border = 1>
+    {% for obj in lista_date %}
+        <tr>
+            <th>data centralizarii</th>
+            <th>Număr UAT in care s-au finalizat sec cad</th>
+            <th>Număr sectoare cadastrale finalizate</th>
+            <th>Număr cărți funciare deschise</th>
+            <th>Suprafața aferentă cărților funciare deschise (ha)</th>
+            <th>Număr sectoare cadastrale în lucru</th>
+            <th>Număr total contracte de finanțare în vigoare</th>
+            <th>Număr contracte de servicii în vigoare</th>
+            <th>Data introducere</th>
+            <th>Data update</th>
+        </tr>
+        <tr>
+            <td>{{obj.data_centralizarii}}</td> <td> {{obj.nr_uaturi_cad_fin}}</td><td> {{obj.nr_sectoare_cad_fin}}<td> {{obj.sup_carti_fun}}</td><td> {{obj.nr_uaturi_in_lucru}} </td>
+            <td> {{obj.nr_sc_in_lucru}}</td> <td> {{obj.nr_contracte_finantare}}</td> <td> {{obj.nr_contracte_servicii}}</td> <td> {{obj.timestamp}}</td> <td> {{obj.updated}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="www.siunlink.ro">link</href>
 {% endblock continut %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import TemplateView
 import random
+from .models import form
 
 # Create your views here.
 # def home(request):
@@ -26,7 +27,8 @@ class HomeView(TemplateView):
     template_name = "home.html"
     def get_context_data(self, **kwargs):
         num = random.randint(0,100)
-        context = {"number" : num}
+        centralizator = form.objects.all()
+        context = {"lista_date" : centralizator}
         return context
 
 # class Formular1View(TemplateView):

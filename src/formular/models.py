@@ -12,3 +12,5 @@ class form(models.Model):
     nr_contracte_servicii   = models.SmallIntegerField()
     timestamp               = models.DateTimeField(auto_now_add = True)
     updated                 = models.DateTimeField(auto_now = True)
+    def __str__(self):
+        return self.data_centralizarii

@@ -13,4 +13,4 @@ class form(models.Model):
     timestamp               = models.DateTimeField(auto_now_add = True)
     updated                 = models.DateTimeField(auto_now = True)
     def __str__(self):
-        return self.data_centralizarii
+        return str(self.data_centralizarii)

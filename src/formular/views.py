@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 import random
 from .models import form
 
@@ -31,8 +31,20 @@ class HomeView(TemplateView):
         context = {"lista_date" : centralizator}
         return context
 
-# class Formular1View(TemplateView):
-#     template_name = "formular1.html"
+class Formular1View(TemplateView):
+    template_name = "formular1.html"
+
+class FormularDetailView(DetailView):
+    model = form
+    template_name = "detail.html"
+    def get_context_data(self,**kwargs):
+        print (self.kwargs)
+        context = super().get_context_data(**kwargs)
+        print (context)
+        return context
+
+
+
 #
 # class Formular2View(TemplateView):
 #     template_name = "formular2.html"

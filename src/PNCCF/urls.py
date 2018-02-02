@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from formular.views import HomeView
+from formular.views import HomeView, Formular1View, FormularDetailView
 from django.views.generic import TemplateView
 
+app_name = 'formular'
 urlpatterns = [
-    path(r'admin/', admin.site.urls),
-    path(r'formular1/', TemplateView.as_view(template_name ='formular1.html')),
-    path(r'formular2/', TemplateView.as_view(template_name ="formular2.html")),
-    path(r'instructiuni/', TemplateView.as_view(template_name="instructiuni.html")),
-    path(r'', HomeView.as_view()),
-    path(r'contact/', TemplateView.as_view(template_name="contact.html")),
+    path('admin/', admin.site.urls),
+    path('formular2/', Formular1View.as_view(),name ='f1'),
+    path('<int:pk>/', FormularDetailView.as_view(), name ='d' ),
+    path('formular2/', TemplateView.as_view(template_name ="formular2.html"),name = 'f2'),
+    path('instructiuni/', TemplateView.as_view(template_name="instructiuni.html")),
+    path('', HomeView.as_view()),
+    path('contact/', TemplateView.as_view(template_name="contact.html")),
 ]
